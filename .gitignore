@@ -2,4 +2,4 @@
 *.swp
 io_bound
 cpu_bound
-io_and_cpu_bound
+mixed_bound
