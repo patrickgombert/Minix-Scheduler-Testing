@@ -17,7 +17,7 @@ int is_palindrome(int subject) {
 
 int main(int arg, char **argv) {
   int super_i = 0;
-  while(super_i < 125) {
+  while(super_i < 150) {
     int i = 100;
     int j = 100;
     int largest_i = 0;
