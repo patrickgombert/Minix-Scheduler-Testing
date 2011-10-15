@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <string.h>
+#include <sys/times.h>
 
 static time_t real_start;
 static time_t real_end;
@@ -20,10 +21,11 @@ void end_clock() {
 }
 
 void print_clock_results() {
-  printf("CPU Process:\nReal: %jd\nSystem: %jd\nUser: %jd\n",
-        (real_end - real_start),
-        (end_sys.tms_stime - start_sys.tms_stime),
-        (end_sys.tms_utime - start_sys.tms_utime));
+  // real,system,user
+  printf("\n%i,%jd,%jd",
+        (int)(real_end - real_start),
+        (intmax_t)(end_sys.tms_stime - start_sys.tms_stime),
+        (intmax_t)(end_sys.tms_utime - start_sys.tms_utime));
 }
 
 int is_palindrome(int subject) {
@@ -45,7 +47,7 @@ int main(int arg, char **argv) {
 
   start_clock();
 
-  while(super_i < 150) {
+  while(super_i < 80) {
     int i = 100;
     int j = 100;
     int largest_i = 0;

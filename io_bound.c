@@ -22,10 +22,11 @@ void end_clock() {
 }
 
 void print_clock_results() {
-  printf("IO Process:\nReal: %jd\nSystem: %jd\nUser: %jd\n",
-        (real_end - real_start),
-        (end_sys.tms_stime - start_sys.tms_stime),
-        (end_sys.tms_utime - start_sys.tms_utime));
+  // real,system,user
+  printf("\n%i,%jd,%jd",
+        (int)(real_end - real_start),
+        (intmax_t)(end_sys.tms_stime - start_sys.tms_stime),
+        (intmax_t)(end_sys.tms_utime - start_sys.tms_utime));
 }
 
 void read_local(char** readIn, char* location) {
@@ -49,7 +50,7 @@ int main(int arg, char **argv) {
 
   start_clock();
 
-  while(i < 14000) {
+  while(i < 3500) {
     read_local(tmp1, "test1.txt");
     read_local(tmp2, "test2.txt");
     write_local(tmp1, "test2.txt");
