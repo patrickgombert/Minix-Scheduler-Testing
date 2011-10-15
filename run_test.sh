@@ -21,3 +21,5 @@ do
   ./mixed_bound >> csv_output/$1/mixed_bound.csv&
   wait
 done
+
+echo Execution finished!

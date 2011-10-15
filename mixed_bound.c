@@ -23,7 +23,7 @@ void end_clock() {
 
 void print_clock_results() {
   // real,system,user
-  printf("\n%i,%jd,%jd",
+  printf("%i,%jd,%jd\n",
         (int)(real_end - real_start),
         (intmax_t)(end_sys.tms_stime - start_sys.tms_stime),
         (intmax_t)(end_sys.tms_utime - start_sys.tms_utime));
