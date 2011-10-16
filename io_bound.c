@@ -25,21 +25,21 @@ void print_clock_results() {
   // real,system,user
   printf("%i,%jd,%jd\n",
         (int)(real_end - real_start),
-        (intmax_t)(end_sys.tms_stime - start_sys.tms_stime),
-        (intmax_t)(end_sys.tms_utime - start_sys.tms_utime));
+        (end_sys.tms_stime - start_sys.tms_stime),
+        (end_sys.tms_utime - start_sys.tms_utime));
 }
 
 void read_local(char** readIn, char* location) {
   FILE *fp;
   fp=fopen(location, "r");
-  fread(readIn, sizeof(readIn), sizeof(readIn)/sizeof(char), fp);
+  fread(readIn, sizeof(*readIn), sizeof(*readIn)/sizeof(char), fp);
   fclose(fp);
 }
 
 void write_local(char** writeOut, char* location) {
   FILE *fp;
   fp=fopen(location, "w");
-  fwrite(writeOut, sizeof(writeOut), sizeof(writeOut)/sizeof(char), fp);
+  fwrite(writeOut, sizeof(*writeOut), sizeof(*writeOut)/sizeof(char), fp);
   fclose(fp);
 }
 
