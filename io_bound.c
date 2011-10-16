@@ -2,24 +2,29 @@
 #include <stdio.h>
 #include <string.h>
 
+void read_local(char** readIn, char* location) {
+  FILE *fp;
+  fp=fopen(location, "r");
+  fread(readIn, sizeof(readIn), sizeof(readIn)/sizeof(char), fp);
+  fclose(fp);
+}
+
+void write_local(char** writeOut, char* location) {
+  FILE *fp;
+  fp=fopen(location, "w");
+  fwrite(writeOut, sizeof(writeOut), sizeof(writeOut)/sizeof(char), fp);
+  fclose(fp);
+}
+
 int main(int arg, char **argv) {
-  long i = 0;
-  while(i < 700000) {
+  int i = 0;
+  while(i < 14000) {
     char* tmp1[9999];
     char* tmp2[9999];
-    FILE *fp;
-    fp=fopen("test1.txt", "r");
-    fread(tmp1, sizeof(tmp1), sizeof(tmp1)/sizeof(char), fp);
-    fclose(fp);
-    fp=fopen("test2.txt", "r");
-    fread(tmp2, sizeof(tmp2), sizeof(tmp2)/sizeof(char), fp);
-    fclose(fp);
-    fp=fopen("test2.txt", "w");
-    fwrite(tmp1, sizeof(tmp1), sizeof(tmp1)/sizeof(char), fp);
-    fclose(fp);
-    fp=fopen("test1.txt", "w");
-    fwrite(tmp2, sizeof(tmp2), sizeof(tmp2)/sizeof(char), fp);
-    fclose(fp);
+    read_local(tmp1, "test1.txt");
+    read_local(tmp2, "test2.txt");
+    write_local(tmp1, "test2.txt");
+    write_local(tmp2, "test1.txt");
     i++;
   }
   return 0;
