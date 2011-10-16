@@ -25,8 +25,8 @@ void print_clock_results() {
   // real,system,user
   printf("%i,%jd,%jd\n",
         (int)(real_end - real_start),
-        (end_sys.tms_stime - start_sys.tms_stime),
-        (end_sys.tms_utime - start_sys.tms_utime));
+        (intmax_t)(end_sys.tms_stime - start_sys.tms_stime),
+        (intmax_t)(end_sys.tms_utime - start_sys.tms_utime));
 }
 
 void read_local(char** readIn, char* location) {
