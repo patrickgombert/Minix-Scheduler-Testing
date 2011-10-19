@@ -1,0 +1,35 @@
+Real – cpu – standard,Real – cpu – Queues 16 to 8,Real – cpu – quantom 200 to 1000,Real – cpu – balance timeout 5 to 20
+59,60,60,49
+62,62,62,46
+61,63,62,47
+59,59,60,49
+61,57,60,50
+62,59,61,50
+59,62,60,49
+57,62,62,50
+61,59,60,50
+60,62,61,46
+,,,
+System – cpu – standard,System – cpu – queues 16 to 8,System – cpu – quantom 200 to 1000,System – cpu – balance timeout 5 to 20
+0,0,0,0
+0,0,0,0
+0,0,1,0
+0,0,0,1
+0,0,0,0
+1,0,0,0
+2,0,0,0
+0,0,1,0
+0,0,1,0
+0,0,0,0
+,,,
+User – cpu – standard,User – cpu – queues 16 to 8,User – cpu – quantom 200 to 1000,User – cpu – balance timeout 5 to 20
+1210,1211,1201,1210
+1212,1216,1201,1210
+1212,1215,1199,1211
+1212,1210,1201,1211
+1214,1209,1203,1210
+1210,1212,1201,1209
+1211,1213,1200,1213
+1211,1211,1199,1213
+1211,1209,1203,1210
+1211,1213,1200,1211
